@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+      <div style={{display:"flex",flexWrap:"Wrap", gap:"10px"}}>
         {foodList.map((eachElement, index) => {
           //console.log("foodList",eachElement)
           return (
@@ -19,7 +19,7 @@ function App() {
         })} ;
       </div>
      
-      
+      git 
     </div>
   );
 }

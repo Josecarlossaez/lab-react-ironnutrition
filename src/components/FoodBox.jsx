@@ -4,7 +4,10 @@ import Button from 'react-bootstrap/Button';
 
 
 function FoodBox(props) {
-  console.log(props);
+    // console.log("id",props.foodList.name)
+    const deleteFood = () => {
+        props.deleteFood(props.foodList.name)
+    }
   return (
     <Card style={{ width: '18rem' }}>
       <div>
@@ -15,7 +18,8 @@ function FoodBox(props) {
           <p>Calories: {props.foodList.calories}</p>
           <p>Servings: {props.foodList.servings}</p>
           <p>Total Calories: {props.foodList.calories}</p>
-          <Button>Delete</Button>
+          
+          <Button type="submit" onClick={()=> deleteFood(props.foodList.name)}>Delete</Button>
 
         </div>
       </div>

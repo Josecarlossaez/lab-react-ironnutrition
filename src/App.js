@@ -60,6 +60,7 @@ function App() {
       </div>
         </Collapse>
       <Search filterFoods={filterFoods} />
+    {foodListSearch.length === 0 && <h3>Oops, Food List is empty</h3>}
 
       <div style={{ display: 'flex', flexWrap: 'Wrap', gap: '10px' }}>
         {foodListSearch.map((eachElement, index) => {

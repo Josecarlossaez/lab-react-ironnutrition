@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 import './App.css';
 import foods from './foods.json';
 import { useState } from 'react';
@@ -9,6 +10,7 @@ import Search from './components/Search';
 function App() {
   const [foodList, setFoodList] = useState(foods);
   const [foodListSearch, setFoodListSearch] = useState(foods);
+  const [formIsShowing , setFormIsShowing] = useState(false)
   
   const addOneFood = (food) => {
     
@@ -38,11 +40,26 @@ function App() {
     })
 setFoodListSearch(filteredArr)
   }
+  const toggleForm = () => {
+    setFormIsShowing(formIsShowing === true ? false : true)
+  }
 
   return (
     <div className="App">
-      <AddFoodForm addOneFood={addOneFood}/>
-      <h3>Food List</h3>
+    <div>
+    <h3>Food List</h3>
+    <Button type="submit" onClick={toggleForm}>Show Form</Button>
+    {formIsShowing === true && <AddFoodForm 
+     addOneFood={addOneFood}
+     stateUpdater={setFoodList}
+    />}
+
+    </div>
+      {/* <AddFoodForm 
+      addOneFood={addOneFood}
+        stateUpdater={setFoodList}
+      /> */}
+      
       <Search filterFoods={filterFoods}/>
 
       <div style={{display:"flex",flexWrap:"Wrap", gap:"10px"}}>
